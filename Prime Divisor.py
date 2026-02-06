@@ -19,4 +19,23 @@ def count_prime_Divisor(n):
             x=is_prime(i)
             if x==True:
                 count+=1
-        return count
+    return count
+
+def main ():
+    number=int(input("How many number do you want to test?"))
+    max=-1
+    Answer=[]
+    ls=list(map(int,input().split()))
+    for i in range (number):
+        Answer.append(count_prime_Divisor(ls[i]))
+    for j, n in enumerate(Answer):
+        if n>max:
+            max=n
+            index=j
+        elif n==max:
+            if ls[j]>ls[index]:
+                max=n
+                index=j
+    print(f"{ls[index]} {Answer[index]}")
+if __name__=="__main__":
+    main()
